@@ -1,3 +1,108 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-1 darkblue">
+		</div>
+		<div class="col-sm-11 white">
+			Hi <img src="../assets/mail.png" class="mail">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-1 darkblue">
+		</div>
+		<div class="col-sm-11 lightblue">
+			Cases
+			<div class="col-sm-4 white">
+				Completed cases over the past 7 years
+			</div>
+			<hr/>
+			<div class="col-sm-11">
+				<div class="row">
+					<div class="col-sm-1 purple_box">
+						Benefits<br/>Verification	
+					</div>
+					<div class="col-sm-1 lightpurple_box">
+						
+					</div>
+					<div class="col-sm-1 purple_box">
+						Prior<br/>Authorization	
+					</div>
+					<div class="col-sm-1 lightpurple_box">
+						14
+					</div>
+					<div class="col-sm-1 purple_box">
+						Prescription<br/>Referral	
+					</div>
+					<div class="col-sm-1 lightpurple_box">
+						14
+					</div>
+					<div class="col-sm-1 purple_box">
+						PAP	
+					</div>
+					<div class="col-sm-1 lightpurple_box">
+						14
+					</div>
+					<div class="col-sm-1 purple_box">
+						CoPay
+					</div>
+					<div class="col-sm-1 lightpurple_box">
+						
+					</div>
+				</div>
+			</div>
+			<br/>
+			<div class="white">
+			<accordion>
+				<accordion-group heading="Current Cases">
+        			CC
+    			</accordion-group>
+    			<hr/>
+    			<accordion-group heading="Filter Options">
+     				FF
+    			</accordion-group>
+			</accordion>
+			</div>
+			<hr/>
+			<div class="col-sm-12">
+				<div class="row white font13">
+				Service Types:
+				<div class="col-sm-1"><span Class="green_shade"></span></div>
+				Benefits Verification
+				<div class="col-sm-1"><span Class="orange_shade"></span></div>
+				Prior Authorization
+				<div class="col-sm-1"><span Class="darkblue_shade"></span></div>
+				CoPay
+				<div class="col-sm-1"><span Class="blue_shade"></span></div>
+				PAP
+				<div class="col-sm-1"><span Class="black_shade"></span></div>
+				Prescription Referral
+				</div>
+			</div>		
+			<hr/>
+			<div class="col-sm-8 white font13">
+			<div class="row">
+				Status Key:
+				<div class="col-sm-1"><span Class="green_shade"></span></div>
+				Completed
+				<div class="col-sm-1"><span Class="blue_shade"></span></div>
+				In Progress
+				<div class="col-sm-1"><span Class="red_shade"></span></div>
+				Action Needed
+			</div>
+			</div>
+			<hr/>
+			<ul class="col-sm-12">
+  				<li *ngFor="let item of apiResponse | paginate: { itemsPerPage: 5, currentPage: p }">
+    				<div class="row">
+						<div class="col-sm-2"  [ngStyle]="item.statusKey === 'InProgress' && {'background-color': 'blue'} || item.statusKey === 'Completed' && {'background-color': 'green'} ||	item.statusKey === 'ActionNeeded' && {'background-color': 'red'}">{{item.statusKey}}</div>
+    					<div class="col-sm-2">{{item.name}}</div>
+    					<div class="col-sm-2">Patient ID: {{item.patientID}}</div>
+    					<div class="col-sm-2">Date of Birth: {{item.dob}}</div>
+    					<div class="col-sm-2">Service ID: {{item.serviceID}}</div>
+    					<div class="col-sm-2"  [ngStyle]="item.service === 'CoPay' && {'background-color': 'blue'} || item.service === 'BV' && {'background-color': 'green'} ||	item.service === 'PA' && {'background-color': 'yellow'}">{{item.service}}</div>
+    				</div>
+  				</li>
+			</ul>
+			<pagination-controls (pageChange)="p = $event"></pagination-controls>
+		</div>
+	</div>
+</div>

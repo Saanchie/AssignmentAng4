@@ -1,0 +1,93 @@
+.green_shade{
+	background-color: green;
+	width:40px;
+	height:20px;
+	float: right;
+}
+
+.orange_shade{
+	background-color: orange;
+	width:40px;
+	height:20px;
+	float: right;
+}
+
+.red_shade{
+	background-color: red;
+	width:40px;
+	height:20px;
+	float: right;
+}
+
+.darkblue_shade{
+	background-color: darkblue;
+	width:40px;
+	height:20px;
+	float: right;
+}
+
+.blue_shade{
+	background-color: blue;
+	width:40px;
+	height:20px;
+	float: right;
+}
+
+.black_shade{
+	background-color: black;
+	width:40px;
+	height:20px;
+	float: right;
+}
+
+.purple_box
+{
+	background-color: purple;
+	padding-right: 0px;
+    padding-left: 5px;    
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 13px;
+}
+
+.lightpurple_box
+{
+	background-color: palevioletred;
+	margin-right:20px;
+	text-align: center;
+    padding-top: 15px;
+    padding-right: 0px;
+    padding-left: 0px; 
+}
+
+li
+{
+	list-style-type: none;
+	background: white;
+    margin-bottom: 15px;
+}
+
+.darkblue
+{
+	background-color: darkblue;
+}
+
+.white
+{
+	background-color: white;
+}
+
+.lightblue
+{
+	background-color: lightblue;
+}
+.font13
+{
+	font-size:13px;
+}
+.mail
+{
+	height:10px;
+	width:10px;
+}
