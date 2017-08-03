@@ -3,7 +3,7 @@
 		<div class="col-sm-1 darkblue">
 		</div>
 		<div class="col-sm-11 white">
-			Hi <img src="../assets/mail.png" class="mail">
+			Hi <img src="../assets/mail.png" class="mail"> 
 		</div>
 	</div>
 	<div class="row">
@@ -21,46 +21,36 @@
 						Benefits<br/>Verification	
 					</div>
 					<div class="col-sm-1 lightpurple_box">
-						
+						{{bvCount}}
 					</div>
 					<div class="col-sm-1 purple_box">
 						Prior<br/>Authorization	
 					</div>
 					<div class="col-sm-1 lightpurple_box">
-						14
+						{{paCount}}
 					</div>
 					<div class="col-sm-1 purple_box">
 						Prescription<br/>Referral	
 					</div>
 					<div class="col-sm-1 lightpurple_box">
-						14
+						{{prCount}}
 					</div>
 					<div class="col-sm-1 purple_box">
 						PAP	
 					</div>
 					<div class="col-sm-1 lightpurple_box">
-						14
+						{{papCount}}
 					</div>
 					<div class="col-sm-1 purple_box">
 						CoPay
 					</div>
 					<div class="col-sm-1 lightpurple_box">
-						
+						{{coPayCount}}
 					</div>
 				</div>
 			</div>
 			<br/>
-			<div class="white">
-			<accordion>
-				<accordion-group heading="Current Cases">
-        			CC
-    			</accordion-group>
-    			<hr/>
-    			<accordion-group heading="Filter Options">
-     				FF
-    			</accordion-group>
-			</accordion>
-			</div>
+			<accord></accord>
 			<hr/>
 			<div class="col-sm-12">
 				<div class="row white font13">
@@ -92,14 +82,7 @@
 			<hr/>
 			<ul class="col-sm-12">
   				<li *ngFor="let item of apiResponse | paginate: { itemsPerPage: 5, currentPage: p }">
-    				<div class="row">
-						<div class="col-sm-2"  [ngStyle]="item.statusKey === 'InProgress' && {'background-color': 'blue'} || item.statusKey === 'Completed' && {'background-color': 'green'} ||	item.statusKey === 'ActionNeeded' && {'background-color': 'red'}">{{item.statusKey}}</div>
-    					<div class="col-sm-2">{{item.name}}</div>
-    					<div class="col-sm-2">Patient ID: {{item.patientID}}</div>
-    					<div class="col-sm-2">Date of Birth: {{item.dob}}</div>
-    					<div class="col-sm-2">Service ID: {{item.serviceID}}</div>
-    					<div class="col-sm-2"  [ngStyle]="item.service === 'CoPay' && {'background-color': 'blue'} || item.service === 'BV' && {'background-color': 'green'} ||	item.service === 'PA' && {'background-color': 'yellow'}">{{item.service}}</div>
-    				</div>
+					<item-detail [itemDetails]="item"></item-detail>
   				</li>
 			</ul>
 			<pagination-controls (pageChange)="p = $event"></pagination-controls>

@@ -1,0 +1,8 @@
+<div class="row">
+    <div class="col-sm-2" [ngStyle]="itemDetails.statusKey === 'InProgress' && {'background-color': 'blue'} || itemDetails.statusKey === 'Completed' && {'background-color': 'green'} || itemDetails.statusKey === 'ActionNeeded' && {'background-color': 'red'}">{{itemDetails.statusKey}}</div>
+    <div class="col-sm-2">{{itemDetails.name}}</div>
+    <div class="col-sm-2">Patient ID: {{itemDetails.patientID}}</div>
+    <div class="col-sm-2">Date of Birth: {{itemDetails.dob}}</div>
+    <div class="col-sm-2">Service ID: {{itemDetails.serviceID}}</div>
+    <div class="col-sm-2" [ngStyle]="itemDetails.service === 'CoPay' && {'background-color': 'blue'} || itemDetails.service === 'BV' && {'background-color': 'green'} ||	itemDetails.service === 'PA' && {'background-color': 'yellow'}">{{itemDetails.service}}</div>
+</div>
